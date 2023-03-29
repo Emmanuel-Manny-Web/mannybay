@@ -133,17 +133,20 @@ export default {
       router.push({ name: 'Category', params:{ tool: category, contentid: id }})
     }
     const collection = computed(() => { 
-      return data.value.filter((datum) => {
-      let content = datum.content ? datum.content.toLowerCase() : '';
-      let title = datum.title ? datum.title.toLowerCase() : '';
-      let category = datum.category ? datum.category.toLowerCase() : '';
-      let name = datum.name ? datum.name : ''
-      let description = datum.description ? datum.description : ''
-      search.value = search.value.toLowerCase()
-      if (content.match(search.value) || title.match(search.value) || category.match(search.value) || name.match(search.value) || description.match(search.value)) {
-        return datum
+      if(data.value.length > 0) {
+        return data.value.filter((datum) => {
+          let content = datum.content ? datum.content.toLowerCase() : '';
+          let title = datum.title ? datum.title.toLowerCase() : '';
+          let category = datum.category ? datum.category.toLowerCase() : '';
+          let name = datum.name ? datum.name : ''
+          let description = datum.description ? datum.description : ''
+          search.value = search.value.toLowerCase()
+          if (content.match(search.value) || title.match(search.value) || category.match(search.value) || name.match(search.value) || description.match(search.value)) {
+            return datum
+          }
+        })
       }
-    })})
+    })
 
     const addToCart = (datum) => {
       if(datum.category) {
