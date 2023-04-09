@@ -33,10 +33,10 @@
         </div>
       </div>
     </section>
-    <section class="pb-3" id="section">
+    <!-- <section class="pb-3" id="section">
       <div class="container-fluid">
         <div class="row justify-content-center align-items-center g-3" id="div">
-          <!-- <div class="col-lg-3 col-md-6 col-sm-12 pb-1" v-for="(datum) in collection" :key="datum._id">
+          <div class="col-lg-3 col-md-6 col-sm-12 pb-1" v-for="(datum) in collection" :key="datum._id">
             <div class="card product-item border-0 mb-4">
               <div class="card-header product-img position-relative overflow-hidden bg-transparent border py-3 text-center" v-if="datum.image.includes(',') && datum.content">
                 <img class="img-fluid" alt="" v-for="(img, index) in datum.image.split(',')" :key="img" :src="`/images/${img}`" v-show="index === 0" style="max-height: 150px;">
@@ -82,10 +82,10 @@
                 </button>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 
@@ -132,19 +132,19 @@ export default {
     const route = (category, id) => {
       router.push({ name: 'Category', params:{ tool: category, contentid: id }})
     }
-    const collection = computed(() => { 
-      // return data.value.filter((datum) => {
-      //   let content = datum.content ? datum.content.toLowerCase() : '';
-      //   let title = datum.title ? datum.title.toLowerCase() : '';
-      //   let category = datum.category ? datum.category.toLowerCase() : '';
-      //   let name = datum.name ? datum.name : ''
-      //   let description = datum.description ? datum.description : ''
-      //   search.value = search.value.toLowerCase()
-      //   if (content.match(search.value) || title.match(search.value) || category.match(search.value) || name.match(search.value) || description.match(search.value)) {
-      //     return datum
-      //   }
-      // })
-    })
+    //  const collection = computed(() => { 
+    //   return data.value.filter((datum) => {
+    //     let content = datum.content ? datum.content.toLowerCase() : '';
+    //     let title = datum.title ? datum.title.toLowerCase() : '';
+    //     let category = datum.category ? datum.category.toLowerCase() : '';
+    //     let name = datum.name ? datum.name : ''
+    //     let description = datum.description ? datum.description : ''
+    //     search.value = search.value.toLowerCase()
+    //     if (content.match(search.value) || title.match(search.value) || category.match(search.value) || name.match(search.value) || description.match(search.value)) {
+    //       return datum
+    //     }
+    //   })
+    // })
 
     const addToCart = (datum) => {
       if(datum.category) {
@@ -203,18 +203,18 @@ export default {
     }
 
     onMounted(async () => {
-      const response = await API.getAllPosts();
-      data.value = response
-      if(localStorage.getItem("items")) {
-        let item = JSON.parse(localStorage.getItem("items"))
-        includesId.value.push(...item)
-      }
-      if(localStorage.getItem("products")) {
-        let item = JSON.parse(localStorage.getItem("products"))
-        includesId.value.push(...item)
-      }
+      // const response = await API.getAllPosts();
+      // data.value = response
+      // if(localStorage.getItem("items")) {
+      //   let item = JSON.parse(localStorage.getItem("items"))
+      //   includesId.value.push(...item)
+      // }
+      // if(localStorage.getItem("products")) {
+      //   let item = JSON.parse(localStorage.getItem("products"))
+      //   includesId.value.push(...item)
+      // }
     })
-    return { data, search, currentSlide, nextSlide, prevSlide, route, collection, clickSearch, addToCart, removeFromCart, includesId }
+    return { data, search, currentSlide, nextSlide, prevSlide, route, clickSearch, addToCart, removeFromCart, includesId }
   }
 }
 </script>
