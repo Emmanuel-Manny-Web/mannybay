@@ -3,7 +3,7 @@ import { getAccessToken } from './accessToken'
 
 axios.defaults.withCredentials = true
 
-const url = '/material'
+const url = 'https://us-central1-mannybay-c2f86.cloudfunctions.net/app/material'
 const token =  getAccessToken();
 //axios.defaults.headers.common['Authorization'] = "Bearer " + token
 

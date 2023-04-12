@@ -203,7 +203,8 @@ export default {
     }
 
     onMounted(async () => {
-      // const response = await API.getAllPosts();
+      const response = await API.getAllPosts();
+      console.log(response)
       // data.value = response
       // if(localStorage.getItem("items")) {
       //   let item = JSON.parse(localStorage.getItem("items"))
