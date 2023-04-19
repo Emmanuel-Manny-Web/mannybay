@@ -14,7 +14,7 @@
             <p class="my-3 fw-bolder">{{ capitalize(email) }}</p>
           </div>
           <p v-if="storeName !== ''">store name: &nbsp;<small>{{ storeName }}</small></p>
-          <p v-if="storeName !== ''">store link: &nbsp;<router-link class="text-decoration-none" :to="{name: 'ClientStore', params:{ storename: storeName }}">{{ origin }}/{{ storeName }}</router-link></p>
+          <p v-if="storeName !== ''">store link: &nbsp;<a class="text-decoration-none" :href="`/${storeName}`">{{ origin }}/{{ storeName }}</a></p>
         </a>
         <button class="btn-close text-reset" data-bs-dismiss="offcanvas" type="button"></button>
       </div>

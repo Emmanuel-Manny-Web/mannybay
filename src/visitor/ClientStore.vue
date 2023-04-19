@@ -510,7 +510,7 @@ export default {
       input.focus()
     }
     const collection = computed(() => { 
-      return data.value.items.filter((datum) => {
+      return data.value.items?.filter((datum) => {
       let name = datum.name ? datum.name : ''
       let description = datum.description ? datum.description : ''
       let price = datum.price ? datum.price.toString() : ''
